@@ -12,12 +12,28 @@
     background-color: #1a1a1a;
     color: #dddddd;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
+    flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
   }
-  h2 {
+  header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+  p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+	
+footer {
+      margin-top: 80px;
+      font-size: 0.9rem;
+      color: #666;
+    }	 
+  h1 {
+    font-size: 2.5rem;  
     color: #ffd43b;
   }
 </style>
@@ -38,7 +54,18 @@
     font-family: 'Segoe UI', sans-serif;
   ">← Back to Home</a>
 
-  <h2>weON AI ChatBot</h2>
+  <header>
+  <h1>weON AI ChatBot</h1>
+  <p>
+     At weON Technology, we’re transforming the way support works with our next-generation AI Chatbot.
+This isn’t your average virtual assistant—it’s a smart, conversational AI built to understand, adapt, and respond to your unique needs in real-time. Whether you need help with technical troubleshooting, AI integration, or cybersecurity advice, our AI Chatbot is available 24/7 to deliver fast, consistent, and reliable assistance.
+
+Designed with intelligence. Trained for precision. Ready to support you—anytime, anywhere.
+    </p>
+</header>
+<footer>
+    &copy; 2025 weON Technology — All rights reserved.
+  </footer>
  
   <button id="chatToggleButton" style="
     position: fixed;
@@ -51,7 +78,7 @@
     border: none;
     font-weight: bold;
     cursor: pointer;
-    z-index: 999;">💬 WeON AI</button>
+    z-index: 999;">💬 weON Chatbot</button>
 
   <div id="chatContainer" style="
     display: none;
@@ -77,8 +104,8 @@
   </div>
 
   <script>
-    const API_URL = "https://informally-intense-frog.ngrok-free.app/v1/chat/completions";
-    const MODEL_NAME = "hermes-3-llama-3.2-3b";
+    const API_URL = "https://alpaca-solid-pony.ngrok-free.app/v1/chat/completions";
+    const MODEL_NAME = "qwen2.5-3b-instruct";
 
     document.getElementById("chatToggleButton").onclick = () => {
       const chat = document.getElementById("chatContainer");
