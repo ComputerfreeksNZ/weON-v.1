@@ -108,9 +108,19 @@ Designed with intelligence. Trained for precision. Ready to support you—anytim
     const MODEL_NAME = "qwen2.5-3b-instruct";
 
     document.getElementById("chatToggleButton").onclick = () => {
-      const chat = document.getElementById("chatContainer");
-      chat.style.display = chat.style.display === "flex" ? "none" : "flex";
-    };
+  const chat = document.getElementById("chatContainer");
+  const chatBox = document.getElementById("chatBox");
+  const wasHidden = chat.style.display !== "flex";
+  chat.style.display = wasHidden ? "flex" : "none";
+
+  if (wasHidden && chatBox.childElementCount === 0) {
+    const welcome = document.createElement("div");
+    welcome.textContent = "Hello! I’m your weON Tech assistant. How can I support you today?";
+    welcome.style = "margin:6px 0;padding:10px;border-radius:12px;background:#333;color:#fff;align-self:flex-start;";
+    chatBox.appendChild(welcome);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+};
 
     function handleKeyPress(event) {
       if (event.key === "Enter") sendMessage();
