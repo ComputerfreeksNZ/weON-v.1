@@ -184,6 +184,24 @@
       chatBox.appendChild(err);
     }
   }
+  // Disable right-click
+  document.addEventListener("contextmenu", event => event.preventDefault());
+
+  // Disable F12, Ctrl+Shift+I, Ctrl+U, etc.
+  document.addEventListener("keydown", function(event) {
+    // F12
+    if (event.keyCode === 123) {
+      event.preventDefault();
+      return false;
+    }
+
+    // Ctrl+Shift+I or Ctrl+Shift+J or Ctrl+U
+    if ((event.ctrlKey && event.shiftKey && (event.keyCode === 73 || event.keyCode === 74)) ||
+        (event.ctrlKey && event.keyCode === 85)) {
+      event.preventDefault();
+      return false;
+    }
+  });
 </script>
 
 </body>
