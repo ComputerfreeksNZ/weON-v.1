@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,162 +5,186 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>weON ChatBot</title>
   <style>
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #1a1a1a;
-    color: #dddddd;
-    display: flex;
-    flex-direction: column;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #1a1a1a;
+      color: #dddddd;
+      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-  }
-  header {
+    }
+    header {
       text-align: center;
       margin-bottom: 40px;
     }
-  p {
+    p {
       font-size: 1.2rem;
       max-width: 600px;
       line-height: 1.6;
     }
-	
-footer {
+    footer {
       margin-top: 80px;
       font-size: 0.9rem;
       color: #666;
-    }	 
-  h1 {
-    font-size: 2.5rem;  
-    color: #ffd43b;
-  }
-</style>
+    }
+    h1 {
+      font-size: 2.5rem;  
+      color: #ffd43b;
+    }
+  </style>
 </head>
 <body>
 
-  <a href="index.html" style="
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    padding: 10px 16px;
-    font-weight: bold;
-    text-decoration: none;
-    background: #ffd43b;
-    color: black;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    font-family: 'Segoe UI', sans-serif;
-  ">← Back to Home</a>
+<a href="index.html" style="
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 16px;
+  font-weight: bold;
+  text-decoration: none;
+  background: #ffd43b;
+  color: black;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-family: 'Segoe UI', sans-serif;
+">← Back to Home</a>
 
-  <header>
+<header>
   <h1>weON AI ChatBot</h1>
   <p>
-     At weON Technology, we’re transforming the way support works with our next-generation AI Chatbot.
-This isn’t your average virtual assistant—it’s a smart, conversational AI built to understand, adapt, and respond to your unique needs in real-time. Whether you need help with technical troubleshooting, AI integration, or cybersecurity advice, our AI Chatbot is available 24/7 to deliver fast, consistent, and reliable assistance.
+    At weON Technology, we’re transforming the way support works with our next-generation AI Chatbot.
+    This isn’t your average virtual assistant—it’s a smart, conversational AI built to understand, adapt, and respond to your unique needs in real-time. Whether you need help with technical troubleshooting, AI integration, or cybersecurity advice, our AI Chatbot is available 24/7 to deliver fast, consistent, and reliable assistance.
 
-Designed with intelligence. Trained for precision. Ready to support you—anytime, anywhere.
-    </p>
+    Designed with intelligence. Trained for precision. Ready to support you—anytime, anywhere.
+  </p>
 </header>
+
 <footer>
-    &copy; 2025 weON Technology — All rights reserved.
-  </footer>
- 
-  <button id="chatToggleButton" style="
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: linear-gradient(to right, #000, #ffd43b);
-    color: white;
-    padding: 12px 16px;
-    border-radius: 50px;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 999;">💬 weON Chatbot</button>
+  &copy; 2025 weON Technology — All rights reserved.
+</footer>
 
-  <div id="chatContainer" style="
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    width: 360px;
-    height: 500px;
-    background: #2a2a2a;
-    color: #fff;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    z-index: 999;
-    overflow: hidden;
-  ">
-    <div style="background:#333;padding:12px;font-weight:bold;text-align:center;color:#ffd43b;">🤖 WeON AI Assistant</div>
-    <div id="chatBox" style="flex:1;overflow-y:auto;padding:10px;background:#1a1a1a;"></div>
-    <div style="display:flex;padding:10px;background:#2a2a2a;">
-      <input id="userInput" style="flex:1;padding:10px;border-radius:8px;border:1px solid #444;background:#1a1a1a;color:#fff;" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
-      <button onclick="sendMessage()" style="margin-left:10px;background:#ffd43b;color:#000;padding:10px 14px;border:none;border-radius:8px;font-weight:bold;">Send</button>
-    </div>
+<button id="chatToggleButton" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(to right, #000, #ffd43b);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 50px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 999;">💬 weON Chatbot</button>
+
+<div id="chatContainer" style="
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 360px;
+  height: 500px;
+  background: #2a2a2a;
+  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  z-index: 999;
+  overflow: hidden;
+">
+  <div style="background:#333;padding:12px;font-weight:bold;text-align:center;color:#ffd43b;">🤖 WeON AI Assistant</div>
+  <div id="chatBox" style="flex:1;overflow-y:auto;padding:10px;background:#1a1a1a;"></div>
+  <div style="display:flex;padding:10px;background:#2a2a2a;">
+    <input id="userInput" style="flex:1;padding:10px;border-radius:8px;border:1px solid #444;background:#1a1a1a;color:#fff;" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+    <button onclick="sendMessage()" style="margin-left:10px;background:#ffd43b;color:#000;padding:10px 14px;border:none;border-radius:8px;font-weight:bold;">Send</button>
   </div>
+</div>
 
-  <script>
-    const API_URL = "https://alpaca-solid-pony.ngrok-free.app/v1/chat/completions";
-    const MODEL_NAME = "qwen2.5-3b-instruct";
+<script>
+  const API_URL = "https://alpaca-solid-pony.ngrok-free.app/v1/chat/completions";
+  const MODEL_NAME = "qwen2.5-3b-instruct";
 
-    document.getElementById("chatToggleButton").onclick = () => {
-  const chat = document.getElementById("chatContainer");
-  const chatBox = document.getElementById("chatBox");
-  const wasHidden = chat.style.display !== "flex";
-  chat.style.display = wasHidden ? "flex" : "none";
+  document.getElementById("chatToggleButton").onclick = () => {
+    const chat = document.getElementById("chatContainer");
+    const chatBox = document.getElementById("chatBox");
+    const wasHidden = chat.style.display !== "flex";
+    chat.style.display = wasHidden ? "flex" : "none";
 
-  if (wasHidden && chatBox.childElementCount === 0) {
-    const welcome = document.createElement("div");
-    welcome.textContent = "Hello! I’m your weON Tech assistant. How can I support you today?";
-    welcome.style = "margin:6px 0;padding:10px;border-radius:12px;background:#333;color:#fff;align-self:flex-start;";
-    chatBox.appendChild(welcome);
-    chatBox.scrollTop = chatBox.scrollHeight;
-  }
-};
-
-    function handleKeyPress(event) {
-      if (event.key === "Enter") sendMessage();
-    }
-
-    async function sendMessage() {
-      const input = document.getElementById("userInput");
-      const msg = input.value.trim();
-      if (!msg) return;
-
-      const chatBox = document.getElementById("chatBox");
-      const user = document.createElement("div");
-      user.textContent = msg;
-      user.style = "margin:6px 0;padding:10px;border-radius:12px;background:#ffd43b;color:#000;align-self:flex-end;";
-      chatBox.appendChild(user);
+    if (wasHidden && chatBox.childElementCount === 0) {
+      const welcome = document.createElement("div");
+      welcome.textContent = "Hello! I’m your weON Tech assistant. How can I support you today?";
+      welcome.style = "margin:6px 0;padding:10px;border-radius:12px;background:#333;color:#fff;align-self:flex-start;";
+      chatBox.appendChild(welcome);
       chatBox.scrollTop = chatBox.scrollHeight;
-      input.value = "";
-
-      try {
-        const res = await fetch(API_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            model: MODEL_NAME,
-            messages: [{ role: "user", content: msg }]
-          })
-        });
-        const data = await res.json();
-        const reply = data?.choices?.[0]?.message?.content || "No response.";
-        const bot = document.createElement("div");
-        bot.textContent = reply;
-        bot.style = "margin:6px 0;padding:10px;border-radius:12px;background:#333;color:#fff;align-self:flex-start;";
-        chatBox.appendChild(bot);
-        chatBox.scrollTop = chatBox.scrollHeight;
-      } catch {
-        const err = document.createElement("div");
-        err.textContent = "⚠️ Unable to connect.";
-        err.style = "margin:6px 0;padding:10px;border-radius:12px;background:#a00;color:#fff;";
-        chatBox.appendChild(err);
-      }
     }
-  </script>
+  };
+
+ window.addEventListener("load", () => {
+  setTimeout(() => {
+    const toggleButton = document.getElementById("chatToggleButton");
+    toggleButton.click(); // Auto-open chat after 5 seconds
+  }, 5000); // 5000 milliseconds = 5 seconds
+});
+  function handleKeyPress(event) {
+    if (event.key === "Enter") sendMessage();
+  }
+
+  async function sendMessage() {
+    const input = document.getElementById("userInput");
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    const chatBox = document.getElementById("chatBox");
+
+    const user = document.createElement("div");
+    user.textContent = msg;
+    user.style = "margin:6px 0;padding:10px;border-radius:12px;background:#ffd43b;color:#000;align-self:flex-end;";
+    chatBox.appendChild(user);
+    chatBox.scrollTop = chatBox.scrollHeight;
+    input.value = "";
+
+    // Typing indicator
+    const typing = document.createElement("div");
+    typing.textContent = "Typing...";
+    typing.style = "margin:6px 0;padding:10px;border-radius:12px;background:#444;color:#ccc;font-style:italic;";
+    typing.id = "typingIndicator";
+    chatBox.appendChild(typing);
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: MODEL_NAME,
+          messages: [{ role: "user", content: msg }]
+        })
+      });
+      const data = await res.json();
+      const reply = data?.choices?.[0]?.message?.content || "No response.";
+
+      // Remove typing indicator
+      const typingDiv = document.getElementById("typingIndicator");
+      if (typingDiv) chatBox.removeChild(typingDiv);
+
+      const bot = document.createElement("div");
+      bot.textContent = reply;
+      bot.style = "margin:6px 0;padding:10px;border-radius:12px;background:#333;color:#fff;align-self:flex-start;";
+      chatBox.appendChild(bot);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    } catch {
+      const typingDiv = document.getElementById("typingIndicator");
+      if (typingDiv) chatBox.removeChild(typingDiv);
+
+      const err = document.createElement("div");
+      err.textContent = "⚠️ Unable to connect.";
+      err.style = "margin:6px 0;padding:10px;border-radius:12px;background:#a00;color:#fff;";
+      chatBox.appendChild(err);
+    }
+  }
+</script>
+
 </body>
 </html>
